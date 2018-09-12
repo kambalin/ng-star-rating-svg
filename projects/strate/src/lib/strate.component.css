@@ -1,0 +1,51 @@
+.strate-stars {
+  display: inline-block;
+}
+
+.strate-rating-label {
+  font-size: 22px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  font-family: helvetica, arial, verdana;
+}
+
+.strate-star {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.strate-star-svg {
+  padding-left: 3px;
+  width: 100%;
+  height: 100%;
+}
+
+.strate-star:hover .fs-star-svg path {  
+  text-align:inherit;
+}
+
+.strate-star-svg path {
+  /* stroke: #000; */
+  stroke-linejoin: round;
+}
+
+/* un-used */
+.strate-shadow {
+  -webkit-filter: drop-shadow( -2px -2px 2px #888 );
+  filter: drop-shadow( -2px -2px 2px #888 );
+}
+
+[class^='svg-empty-'] {
+  fill: lightgray;
+}
+
+[class^='svg-rated-'] {
+  fill: crimson;
+}
+
+[class^='svg-hovered-'] {
+  fill: orange;
+}
