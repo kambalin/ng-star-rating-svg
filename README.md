@@ -34,11 +34,9 @@ export class AppModule { }
 ```
 * Add the component ```<nsrs-strate>``` where rating part is expected in your application
 
-## Signatures of the component
+## Component properties
 
-## Options
-
-| option  | default  | description  |
+| property  | default  | description  |
 |---|---|---|
 | initialRating | 0 | Initial rating applied on load |
 | starSize | 40 | width in pixels of each star |
