@@ -21,6 +21,14 @@ export const STRATE_VALUE_ACCESSOR: any = {
   providers: [STRATE_VALUE_ACCESSOR]
 })
 export class StrateComponent implements OnInit, ControlValueAccessor {
+
+  @Input() readOnly = false;
+  @Input() starSize = 0;
+  @Input() useFullStars = false;
+  @Input() showDescription = false;
+  @Input() starsDetails: IStarDetails[] = [];
+  @Input() initialRating: number = undefined;
+
   private _state = {
     rating: 0,
     rated: false
@@ -37,14 +45,14 @@ export class StrateComponent implements OnInit, ControlValueAccessor {
     activeColor: 'gold',
     ratedColor: 'crimson',
     useGradient: true,
-    readOnly: false,    
+    readOnly: false,
     baseUrl: false,
     starGradient: {
       start: '#FEF7CD',
       end: '#FF9511'
     },
     strokeWidth: 4,
-    strokeColor: 'black',    
+    strokeColor: 'black',
     starSize: 40,
     callback: function (rating, elem) { },
     onHover: function (index, rating) { },
@@ -54,17 +62,10 @@ export class StrateComponent implements OnInit, ControlValueAccessor {
   onModelChange: Function = () => { };
   onModelTouched: Function = () => { };
 
-  @Input() readOnly: boolean = false;
-  @Input() starSize: number = 0;
-  @Input() useFullStars: boolean = false;
-  @Input() showDescription: boolean = false;
-  @Input() starsDetails: IStarDetails[] = [];
-  @Input() initialRating: number = undefined;
-
   constructor(private _elem: ElementRef, private _renderer: Renderer2, private cd: ChangeDetectorRef) {
   }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.settings.readOnly = this.readOnly;
     if (this.starSize)
       this.settings.starSize = this.starSize;
@@ -82,8 +83,8 @@ export class StrateComponent implements OnInit, ControlValueAccessor {
 
   writeValue(value: any): void {
     // Called twice during component initialization, first with null, if need add check for null
-    // https://github.com/angular/angular/issues/14988    
-    this._value = value;    
+    // https://github.com/angular/angular/issues/14988
+    this._value = value;
     let starVal = this.getStarByValue();
     this.applyRating(starVal);
     this.cd.detectChanges();
@@ -101,7 +102,7 @@ export class StrateComponent implements OnInit, ControlValueAccessor {
     if (this._value == null)
       return 0;
     if (!this.starsDetails || this.starsDetails.length < 1)
-      return this._value;    
+      return this._value;
     return this.starsDetails.filter(x => x.value == this._value)[0].star;
   }
 

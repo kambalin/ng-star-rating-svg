@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-star-rating-svg';
+  myRating: number = 0;
 }
