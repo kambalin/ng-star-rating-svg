@@ -15,24 +15,11 @@ Features:
 
 # How to use?
 
-* Include ```StrateModule``` module in ```app.module.ts```
-```javascript
-import { StrateModule } from 'projects/strate/src/public_api';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    StrateModule //<-- add the module in imports
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+* Install package
 ```
-* Add the component ```<nsrs-strate>``` where rating part is expected in your application
+npm install nsrs-strating
+```
+* Import the StratingModule into your app module (app.module.ts) and add it to the imports array to make the `nsrs-strating` component available within your Angular module.
 
 ## Component properties
 
@@ -50,26 +37,27 @@ export class AppModule { }
 **```app.module.ts```**
 
 ```javascript
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { StrateModule } from 'projects/strate/src/public_api';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { StratingModule } from 'nsrs-strating';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent    
   ],
   imports: [
     BrowserModule,
-    StrateModule,
+    AppRoutingModule,
+    StratingModule,
     FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
 ```
 
 **```app.component.html```**
@@ -79,11 +67,13 @@ export class AppModule { }
   <h1>
     Lets rate it!
   </h1>
-  <nsrs-strate [initialRating]="2" [(ngModel)]="myRating"></nsrs-strate>
+  <nsrs-strating [initialRating]="2" [(ngModel)]="myRating"></nsrs-strating>
   <h1 *ngIf="myRating">
     Rated to {{ myRating }}
   </h1>
 </div>
+
+<router-outlet></router-outlet>
 ```
 
 **```app.component.ts```**
@@ -97,8 +87,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-star-rating-svg';
+  title = 'strating-test';
   myRating: number = 0;
 }
-
 ```
