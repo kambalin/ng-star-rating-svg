@@ -1,10 +1,19 @@
 {
   "name": "nsrs-strating",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/kambalin/ng-star-rating-svg.git"
   },
+  "description": "A basic, yet flexible star rate angular component, using SVG",
+  "keywords": [
+    "angular",
+    "rating",
+    "star rating",
+    "svg"
+  ],
+  "author": "Pavel Kambalin",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^13.1.0",
     "@angular/core": "^13.1.0"
