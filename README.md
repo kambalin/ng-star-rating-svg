@@ -13,6 +13,9 @@ Features:
 * Star value description on hover and selection
 * Custom selected star value
 
+### Demo
+https://kambalin.github.io/ng-star-rating-svg/
+
 # How to use?
 
 * Install package
